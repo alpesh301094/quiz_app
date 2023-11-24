@@ -7,7 +7,7 @@
                 <input type="email" class="form-control" id="inputEmail" formControlName="email" placeholder="Email">
                 <span class="validation-error"
                     *ngIf="(loginFormControl.email.touched) && loginFormControl.email.errors?.required">
-                    Name is required
+                    Email is required
                 </span>
                 <span class="validation-error"
                     *ngIf="(loginFormControl.email.touched) && loginFormControl.email.errors?.email">

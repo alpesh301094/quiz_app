@@ -37,8 +37,7 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['/quiz']);
     }, err => {
       this.btnLoader = false;
-      // console.log(err.error.error);
-      this.errMsg = err.error.error;
+      this.errMsg = err.error.message;
       alert(this.errMsg);
     })
     this.loginForm.reset();
