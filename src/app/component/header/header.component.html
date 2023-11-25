@@ -14,6 +14,7 @@
           <li *ngIf="!authService.isAuthenticated()"><a routerLink="login">LOGIN</a></li>
           <li *ngIf="!authService.isAuthenticated()"><a routerLink="registration">REGISTRATION</a></li>
           <li *ngIf="authService.isAuthenticated()"><a routerLink="quiz">START QUIZ</a></li>
+          <li *ngIf="authService.isAuthenticated()"><a routerLink="/all-result">RESULT</a></li>
           <li *ngIf="authService.isAuthenticated()"><a routerLink="profile">PROFILE</a></li>
           <li *ngIf="authService.isAuthenticated()"><a (click)="logout()">LOGOUT</a></li>
           <!-- <li *ngIf="authService.isAuthenticated()">

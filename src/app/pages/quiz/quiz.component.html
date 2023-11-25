@@ -1,5 +1,7 @@
 <!-- Start quiz -->
 <div class="row" *ngIf="quizWelcome">
+    <!-- <img src="https://images.squarespace-cdn.com/content/v1/5c4a3053b98a78bea1e90622/1575486969836-DQKSYYW7F60712AGPFKV/loader.gif" alt="" width="200">
+    <img src="https://media.tenor.com/8KWBGNcD-zAAAAAC/loader.gif" alt="" width="200"> -->
     <div class="col-md-6 col-md-offset-5">
         <div class="">
             <h2>Start the Quiz</h2>
@@ -12,33 +14,35 @@
 <div class="row" *ngIf="quizStart">
     <div class="col-md-6">
         <div class="container quiz-container">
-            <div class="progress">
-                <div class="progress-bar" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"
-                    style="width: 10%;">
-                    10%
+            <div class="progress" *ngIf="!showResult">
+                <div class="progress-bar" role="progressbar" [style.width.%]="quizPercent" [attr.aria-valuenow]="quizPercent" aria-valuemin="0" aria-valuemax="100">
+                    {{quizPercent}}%
                 </div>
             </div>
 
-            <div class="question-container">
-                <h3>Question 1 of 10</h3>
-                <p>What is the capital of France?</p>
+            <div class="question-container" *ngIf="!showResult">
+                <h3>Question {{questionPointer + 1}} of {{quizArr.length}}</h3>
+                <p>{{quizList?.question}}</p>
                 <div class="options-container">
-                    <label>
-                        <input type="radio" name="option" value="a"> Paris
-                    </label>
-                    <label>
-                        <input type="radio" name="option" value="b"> London
-                    </label>
-                    <label>
-                        <input type="radio" name="option" value="c"> Berlin
-                    </label>
-                    <label>
-                        <input type="radio" name="option" value="d"> Madrid
+                    <label *ngFor="let optionItem of quizList?.options">
+                        <input type="radio" name="option" ngModel [value]="optionItem._id" (click)="selectOption(quizList?._id, optionItem._id)"> {{optionItem.option}}
                     </label>
                 </div>
             </div>
+            <div class="question-container text-center" *ngIf="showResult">
+                <div *ngIf="quizPageLoader">
+                    <img src="https://images.squarespace-cdn.com/content/v1/5c4a3053b98a78bea1e90622/1575486969836-DQKSYYW7F60712AGPFKV/loader.gif" alt="" width="200">
+                </div>
+                <div *ngIf="!quizPageLoader">
+                    <h3>Your result is <b>{{showResultObj?.mark}}</b></h3>
+                    <h5>Corrent Answer is <b>{{showResultObj?.currect_answer}}</b></h5>
+                    <a routerLink="/all-result">
+                        <button type="button" class="btn btn-primary" *ngIf="showResult">View All Result</button>
+                    </a>
+                </div>
+            </div>
             <!-- Add more question containers for additional questions -->
-            <button type="button" class="btn btn-primary">Next</button>
+            <button [disabled]="!selectedOption" type="button" class="btn btn-primary" *ngIf="!showResult" (click)="nextQuestion()">Next</button>
         </div>
     </div>
 </div>
