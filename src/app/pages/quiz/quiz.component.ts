@@ -6,10 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./quiz.component.scss']
 })
 export class QuizComponent implements OnInit {
+  quizWelcome: boolean = true;
+  quizStart: boolean = false;
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  startQuiz(){
+    this.quizWelcome = false;
+    this.quizStart = true;
+  }
 }

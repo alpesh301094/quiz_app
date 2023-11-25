@@ -9,13 +9,15 @@ import { RegistrationComponent } from './pages/registration/registration.compone
 import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { QuizComponent } from './pages/quiz/quiz.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     LoginComponent,
     RegistrationComponent,
-    QuizComponent
+    QuizComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

@@ -13,8 +13,14 @@
           <!-- class="active" -->
           <li *ngIf="!authService.isAuthenticated()"><a routerLink="login">LOGIN</a></li>
           <li *ngIf="!authService.isAuthenticated()"><a routerLink="registration">REGISTRATION</a></li>
-          <li *ngIf="authService.isAuthenticated()"><a routerLink="quiz">Start Quiz</a></li>
+          <li *ngIf="authService.isAuthenticated()"><a routerLink="quiz">START QUIZ</a></li>
+          <li *ngIf="authService.isAuthenticated()"><a routerLink="profile">PROFILE</a></li>
           <li *ngIf="authService.isAuthenticated()"><a (click)="logout()">LOGOUT</a></li>
+          <!-- <li *ngIf="authService.isAuthenticated()">
+            <p routerLink="profile" class="navbar-text">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Profile-720.png" alt="Profile" width="30" height="30"> {{userData.name}}
+            </p>
+          </li> -->
         </ul>
       </div>
     </div>

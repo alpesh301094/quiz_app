@@ -1,1 +1,44 @@
-<p>quiz works!</p>
+<!-- Start quiz -->
+<div class="row" *ngIf="quizWelcome">
+    <div class="col-md-6 col-md-offset-5">
+        <div class="">
+            <h2>Start the Quiz</h2>
+            <p>Best of luck!</p>
+            <button class="btn btn-primary" (click)="startQuiz()">Start Quiz ❯</button>
+        </div>
+    </div>
+</div>
+<!-- Quiz started -->
+<div class="row" *ngIf="quizStart">
+    <div class="col-md-6">
+        <div class="container quiz-container">
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"
+                    style="width: 10%;">
+                    10%
+                </div>
+            </div>
+
+            <div class="question-container">
+                <h3>Question 1 of 10</h3>
+                <p>What is the capital of France?</p>
+                <div class="options-container">
+                    <label>
+                        <input type="radio" name="option" value="a"> Paris
+                    </label>
+                    <label>
+                        <input type="radio" name="option" value="b"> London
+                    </label>
+                    <label>
+                        <input type="radio" name="option" value="c"> Berlin
+                    </label>
+                    <label>
+                        <input type="radio" name="option" value="d"> Madrid
+                    </label>
+                </div>
+            </div>
+            <!-- Add more question containers for additional questions -->
+            <button type="button" class="btn btn-primary">Next</button>
+        </div>
+    </div>
+</div>
